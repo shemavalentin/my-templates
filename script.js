@@ -17,7 +17,7 @@ function showLoadingSpinner() {
 
 // Hide loading
 
-function removeLoadingnSpinner() {
+function removeLoadingSpinner() {
     quoteContainer.hidden = false;
     loader.hidden = true;
 }
@@ -44,13 +44,13 @@ function newQuote() {
         quoteText.classList.remove('long-quote');
     }   
     quoteText.textContent = quote.text;
-    showLoadingSpinner();
+    removeLoadingSpinner();
 }
 
 // Get Quotes From API
  
 async function getQuotes() {
-    loading();
+    showLoadingSpinner();
     const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
 
     try {
@@ -59,8 +59,7 @@ async function getQuotes() {
         newQuote();
 
     } catch (error) {
-        // catch errors
-   
+        // catch errors  
     }
 }
 
